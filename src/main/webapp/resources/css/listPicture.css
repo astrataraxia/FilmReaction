@@ -1,0 +1,213 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+ /* 게시판 */
+  .wrapper_board{
+      margin:0 20%;
+      padding-bottom: 200px;
+  }
+  
+  /* 게시판 목록 tit */
+  
+ .board_head{
+ 	justify-content: space-between;
+ 	display:flex;
+ 	flex-direction:row;  
+  	align-items: flex-end;
+ }
+  
+  .board_head h3 {
+	margin: 50px 0px 8px 0px;
+    font-size: 2rem;
+  }
+
+  .board_line {
+      border-top: 3px solid #000000;
+  }
+  
+ .board_tag {
+ 	width:100px;
+ 	margin: 50px 0px 8px 0px;
+ }
+
+ .tablinks { 
+ 	cursor: pointer;
+ }
+
+ .tablinks:hover { 
+  background-color: #2C3639;
+}
+
+  
+  .board_line {
+      border-top: 3px solid #000000;
+  }
+  
+  
+  /* 게시판 테이블*/
+.picture_wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding-top: 50px;
+}
+
+.picture {
+  width: calc(15%-5px);
+  height: 200px;
+  aspect-ratio: 6 / 5;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.picture_box {
+  width: 100%;
+  height: 100%;
+}
+
+.picture_box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.board_textBox {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 20px;
+  z-index: 3;
+}
+
+.board_textBox p {
+  color: white;
+  margin: 5px 0 0;
+}
+
+.board__name {
+  font-size: 22px;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.board__price {
+  font-size: 16px;
+  font-weight: 400;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.picture:after {
+  content: "";
+  display: block;
+  background: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  opacity: 0;
+}
+
+.picture:after,
+.picture .picture_box img,
+.picture .board__name,
+.picture .board__price {
+  transition: all 0.4s ease-in-out;
+}
+  
+.picture .board__price {
+  transition: all 0.4s ease-in-out 0.15s;
+}
+ 
+ 
+@media screen and (min-width: 724px) {  
+    .picture:hover:after {
+      opacity: 1;
+    }
+  
+    .picture:hover .picture_box img {
+      transform: scale(1.1);
+      filter: blur(3px);
+    }
+  
+    .picture:hover .board__name {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  
+    .picture:hover .board__price {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  
+  /* 게시판 하단부 버튼& */
+  
+
+  .board_bottom {
+      padding-top: 30px;
+      text-align: center;
+  }
+  
+  
+  .write_btn {
+      float : right;
+      top: 20px;
+      line-height: 40px;
+      width: 170px;
+      height: 50px;
+      background-color: #f19a09;
+      border: 0;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+  }
+  
+.write_btn:hover {
+    background-color: #e18100;
+}
+  
+  
+  /* 검색창 */
+  .wrapper_search {
+     display:flex;
+     flex-direction: row;
+     
+  }
+  
+  
+  input.search_box {
+      width: 300px;
+      height: 38px;
+      padding: 6px 54px 6px 12px;
+      font-size: 16px;
+      line-height: 37px;
+      border: 1px solid #dfdfdf;
+  }
+  
+  .search_btn {
+      border: 0;
+      width:75px;
+  }
+
+  .search_btn:active {
+    background-color: #cfcfcf;
+  }

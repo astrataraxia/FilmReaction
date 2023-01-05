@@ -11,8 +11,13 @@
         
         <!-- 게시판 헤드 -->
         <div class="board_head">
-            <h3>Film Reaction 게시판</h3>   
+            <h3>Film Reaction 게시판</h3>  
+            <div class="board_tag">
+	        	<button class="tablinks" onclick="location.href='board'"><i class="fa-solid fa-bars fa-2x"></i></button>
+	        	<button class="tablinks" onclick="location.href='list-picture'"><i class="fa-solid fa-image fa-2x"></i></button>
+        	</div>
         </div>
+        
         <div class="board_line"></div>	
 
     
@@ -49,13 +54,15 @@
                     <td>2022-01-01</td>
             </tbody>
             </table>	
+            
+            <!-- 글쓰기 박스 -->
             <div class="board_bottom">
                 <button class="write_btn" onclick="location.href='/film/register'">글쓰기</button>
             </div>
 
             <!-- 검색 박스 -->
             <form name="searchForm" method="get" action="?" class="wrapper_search" >
-                <select name="search_" class="search">    	
+                <select name="type" class="search">    	
                     <option>제목</option>
                     <option>제목 + 본문</option>
                     <option>작성자</option>

@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="/resources/css/board.css">
     <link rel="stylesheet" href="/resources/css/listPicture.css">
     <link rel="stylesheet" href="/resources/css/read.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" type="text/css" rel="stylesheet">
+    
 
     <script src="/resources/js/singup.js"></script>
     <title>Film Reaction</title>
@@ -31,7 +33,7 @@
                 
                 <nav class="wrapper_menu">
                     <a href="/film/register"><span class="menu-item">글쓰기</span></a>
-                    <a href="/film/board"><span class="menu-item">목록</span></a>
+                    <a href="/film/board"><span class="menu-item">게시판</span></a>
                     <a href="/film/login"><span class="menu-item">로그인</span></a>
                     <a href="/film/signup"><span class="menu-item">회원가입</span></a>
                   </nav>

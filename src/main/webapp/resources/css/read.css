@@ -50,4 +50,62 @@
     width: 70%;
     height: 600px;
     font-size: 25px;
+    padding: 5px px;
+    border: 0px;
+}
+
+
+/* read페이지 하단부. 버튼& 댓글. */
+
+.read_bottom {
+    width: 100%;
+}
+
+.read_button {
+    width: 170px;
+    height: 50px;
+    background-color: #f19a09;
+    border: 0;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 10px 10px 10px 0px;
+}
+
+.read_reply {
+    display: block;
+    height: 50px;
+}
+
+.read_reply button{
+    float: right;
+    border: none;
+    background-color: #2C3639;
+    color: white;
+    cursor: pointer;
+}
+.read_reply button:active{
+    background-color: #191f21;
+}
+
+
+.reply_list>ul {
+    list-style: none;
+
+}
+
+.reply_list>ul>li {
+    display:flex;
+    flex-direction: column;
+    border-bottom: 1px dashed lightgray;
+}
+
+.reply_list>ul>li :first-child {
+    color: gray;
+    margin-bottom: 5px;
+}
+
+.reply_list>ul>li :last-child {
+    font-size: 22px;
+    margin-bottom: 5px;
 }

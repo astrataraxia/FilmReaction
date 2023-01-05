@@ -11,6 +11,10 @@
     <div class="container">
         <div class="wrapper">
             <div class="wrapper_main_title">
+            	<button class="wrapper_login" onclick="location.href='film/login'">
+                    <span>Login</span>
+                </button>
+            
                 <h1>Film Reaction</h1>
                 <p>Movie reaction, review site.<br>if you want visit our site, please enter button</p>
                 <button class="wrapper_enter" onclick="location.href='film/main'">

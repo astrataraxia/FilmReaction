@@ -12,11 +12,11 @@
             <main class="wrap__main">
                 <input class="main__input" id="email" type="email" placeholder="이메일을 입력해주세요.">
                 <div class="error" id="error__email"></div>
-                <input class="main__input" id="name" type="text" placeholder="닉네임을 입력해 주세요">
+                <input class="main__input" id="name" type="text" maxlength="8" placeholder="닉네임을 입력해 주세요">
                 <div class="error" id="error__name"></div>
-                <input class="main__input" id="pw1" type="password" placeholder="비밀번호를 입력해 주세요">
+                <input class="main__input" id="pw1" type="password" maxlength="20" placeholder="비밀번호를 입력해 주세요">
                 <div class="error" id="error__password1"></div>
-                <input class="main__input" id="pw2" type="password" placeholder="비밀번호를 다시 입력해 주세요">
+                <input class="main__input" id="pw2" type="password" maxlength="20" placeholder="비밀번호를 다시 입력해 주세요">
                 <div class="error" id="error__password2"></div>
 
                 <div class="wrap__phone">

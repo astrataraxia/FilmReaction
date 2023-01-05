@@ -9,7 +9,7 @@
 	<div class="wrapper_read">
 		<!-- read 헤드 -->
 		<div class="read_head">
-            <h3>Film Reaction 읽기</h3>   
+            <h3>Film Reaction 수정</h3>   
         </div>
         <div class="read_line"></div>	
 		<!-- read 테이블 -->
@@ -32,35 +32,13 @@
 
 		<!-- 내용 출력 -->
 		<div class="read_table_content">
-			<textarea class="read_content" name="content" readonly="readonly">컨텐츠 들어갈 공간</textarea>
+			<textarea class="read_content" name="content" >컨텐츠 들어갈 공간</textarea>
 		</div>
 
 		<!-- modify ,list button & 댓글-->
 		<div class="read_bottom">
-			<button class="read_button" onclick="location.href='/film/board'">목록</button>
-			<button class="read_button" onclick="location.href='/film/board/modify'">수정</button>
-	
-			<!-- 댓글 작성 =>로그인 해야만.. -->
-			<div class="read_reply">
-				<button>댓글작성</button>
-			</div>
-			<!-- 댓글 보기 -->
-			<div class="reply_list">
-				<ul>
-					<li>
-						<p>userName | 2023-01-01</p>
-						<p>content</p>
-					</li>
-					<li>
-						<p>userName | 2023-01-01</p>
-						<p>content</p>
-					</li>
-					<li>
-						<p>userName | 2023-01-01</p>
-						<p>content</p>
-					</li>
-				</ul>
-			</div>		
+			<button class="read_button" onclick="location.href='/film/read'">수정</button>
+			<button class="read_button" onclick="location.href='/film/read'">취소</button>	
 		</div>
 	</div>
 

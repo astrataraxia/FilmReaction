@@ -37,9 +37,21 @@ public class BoardController {
 		log.info("board page.....");
 	}
 	
+	@GetMapping("/list-picture")
+	public void picture() {
+		log.info("list-picutre page.....");
+	}
+	
 	@GetMapping("/board/id")
 	public String read() {
 		log.info("read page......");
 		return "film/read";
 	}
+	
+	@GetMapping("/board/modify")
+	public String modify() {
+		log.info("modify page......");
+		return "film/modify";
+	}
+
 }

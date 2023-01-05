@@ -27,7 +27,6 @@ html, body {
     flex-direction: column;
     justify-content: space-around;
     align-items:center;
-    
 }
 .wrapper_main_title h1{
     color: burlywood;
@@ -39,6 +38,24 @@ html, body {
     text-align: center;
     color: burlywood;
 }
+
+.wrapper_login{
+    width: 90px;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+    background-color:transparent;
+    color: burlywood;
+    display: block;
+    position: absolute;
+    right: 40px;
+    top: 40px;
+}
+
+.wrapper_login:hover {
+    background-color:#40240E;
+}
+
 
 .wrapper_enter{
     width: 150px;

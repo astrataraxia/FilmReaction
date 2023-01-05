@@ -10,15 +10,35 @@
   }
   
   /* 게시판 목록 tit */
-  .board_head h3 {
-      margin: 50px 0px 8px 0px;
-      font-size: 2rem;
-  }
   
+ .board_head{
+ 	justify-content: space-between;
+ 	display:flex;
+ 	flex-direction:row;  
+  	align-items: flex-end;
+ }
+  
+  .board_head h3 {
+	margin: 50px 0px 8px 0px;
+    font-size: 2rem;
+  }
+
   .board_line {
       border-top: 3px solid #000000;
   }
   
+ .board_tag {
+ 	width:100px;
+ 	margin: 50px 0px 8px 0px;
+ }
+
+ .tablinks { 
+ 	cursor: pointer;
+ }
+
+ .tablinks:hover { 
+  background-color: #2C3639;
+}
 
   
   /* 게시판 목록 제목 */
