@@ -1,18 +1,16 @@
 package com.joongang.controller;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.joongang.domain.AuthVO;
-import com.joongang.domain.MemberVO;
+import com.joongang.domain.BoardVO;
 import com.joongang.service.BoardService;
-import com.joongang.service.MemberService;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
@@ -22,42 +20,34 @@ import lombok.extern.log4j.Log4j;
 @RequiredArgsConstructor
 public class BoardController {
 	
-	private final BoardService board;
-	private final MemberService member;
+	private final BoardService boardService;
 	
 	@GetMapping("/main")
 	public void main() {
 		log.info("main page.....");
 	}
 
+	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/register")
 	public void register() {
 		log.info("register page.....");
 	}
 	
-	@GetMapping("/signup")
-	public void signup() {
-		log.info("signup page.....");
+	@PreAuthorize("isAuthenticated()")
+	@PostMapping("/register")
+	public String register(BoardVO board, RedirectAttributes redirect) {
+		log.info("register : " + board.getBno());
+		boardService.insert(board);
+		redirect.addFlashAttribute("result", board.getBno());
+
+		return "redirect:/film/board";
 	}
 	
-	
-	@PostMapping("/signup")
-	public String signup(@ModelAttribute MemberVO memVO) {
-		log.info("signup complete");
-		member.memberJoin(memVO);
-		return "redirect:/film/main";
-	}
-	
-	
-	
-	@GetMapping("/login")
-	public void login() {
-		log.info("login page.....");
-	}
-	
+
 	@GetMapping("/board")
 	public void board() {
 		log.info("board page.....");
+		boardService.getList();
 	}
 	
 	@GetMapping("/list-picture")
@@ -65,8 +55,8 @@ public class BoardController {
 		log.info("list-picutre page.....");
 	}
 	
-	@GetMapping("/board/id")
-	public String read() {
+	@GetMapping("/board/{bno}")
+	public String read(@PathVariable Long bno) {
 		log.info("read page......");
 		return "film/read";
 	}

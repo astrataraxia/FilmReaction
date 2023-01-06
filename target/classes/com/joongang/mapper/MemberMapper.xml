@@ -22,7 +22,7 @@
 	</resultMap>
 	
 	<select id="read" resultMap="memberMap">
-		select mem.userid, userpw, username, regdate, updatedate, location, gender ,auth
+		select mem.userid, userpw, username, location, gender, auth.auth
 		from film_member mem left outer join film_member_auth auth on mem.userid = auth.userid
 		where mem.userid = #{userId}
 	</select>

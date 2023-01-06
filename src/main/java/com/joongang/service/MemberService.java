@@ -6,5 +6,5 @@ public interface MemberService {
 	
 	public void memberJoin(MemberVO membervo);
 	
-
+	
 }

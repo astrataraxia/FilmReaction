@@ -10,7 +10,7 @@
      	<div class="main_body">
             <header class="wrap__title">Film Reaction 회원가입</header>
             <form action="/film/signup" method="post">
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
 	            <main class="wrap__main">
 	                <input class="main__input" id="email" type="email" name="userId" placeholder="이메일을 입력해주세요.">
 	                <div class="error" id="error__email"></div>
@@ -76,6 +76,8 @@
 	            <div class="wrap__confirm">
 	                <button class="confirm__button" id="signup__button" type="submit" disabled onclick="signup()" >가입하기</button>
 	            </div>
+	            <!-- post security -->
+            	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
            	</form>
 
         </div>

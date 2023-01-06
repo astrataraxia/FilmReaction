@@ -35,23 +35,36 @@
                     </tr>
                 </thead>
             <tbody class="board_content">
-                    
+                 
+                <c:forEach items="${board}" var="film">
                 <tr class="tr_list">
 
                     <!--글 번호-->
-                    <td>bno</td>
+                   <td><c:out value="${film.bno }"/></td>
+
                     <!-- 글 제목 -->
                     <td>
-                    <a class="content_title" href="#">title
-                        <span class="comment_cnt">[15]</span>
-                    </a>
+	                    <a class='move' href='/film/board/<c:out value="${film.bno}"/>'>
+						<c:out value="${film.title}"/>
+						<b>[<c:out value="${film.replyCnt}"/>]</b>
+	                    </a>
                     </td>
                     <!-- 작성자-->
                     <td>
-                    userId
+                    <c:out value="${film.writer}"/>
                     </td>
                     <!-- 글 작성 시간 -->
-                    <td>2022-01-01</td>
+                    <td>
+                    <c:choose>
+                    	<c:when test="${film.regdate } == ${film.updatedate }">
+                    	<fmt:formatDate pattern="YY-MM-dd hh:mm" value="${film.regdate}" />
+                    	</c:when>
+                    	<c:otherwise>
+                    		<fmt:formatDate pattern="YY-MM-dd hh:mm" value="${film.updatedate}" />
+                    	</c:otherwise>
+                    </c:choose>
+                    </td>
+                    </c:forEach>
             </tbody>
             </table>	
             
