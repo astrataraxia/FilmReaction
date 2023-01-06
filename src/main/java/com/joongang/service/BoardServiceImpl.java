@@ -14,32 +14,37 @@ import lombok.extern.log4j.Log4j;
 @Service
 @Log4j
 @RequiredArgsConstructor
-public class BoardServiceImp implements BoardService {
+public class BoardServiceImpl implements BoardService {
 
 	private final BoardMapper mapper;
 	
 	@Override
 	public List<BoardVO> getList() {
-		log.info("service - getList......");
+		log.info("service - getList");
 		return mapper.getList();
 	}
 
 	@Override
 	public void insert(BoardVO board) {
-		// TODO Auto-generated method stub
-
+		log.info("service - insert" + board);
+		mapper.insert(board);
 	}
 
 	@Override
 	public boolean update(BoardVO board) {
-		// TODO Auto-generated method stub
-		return false;
+		log.info("service - update : "+board);
+		int result = mapper.update(board);
+		
+		return result ==1;
 	}
 
 	@Override
 	public boolean delete(Long bno) {
-		// TODO Auto-generated method stub
-		return false;
+		log.info("service - remove : "+bno);
+		int result = mapper.delete(bno);
+		
+		return result==1;
 	}
+
 
 }
