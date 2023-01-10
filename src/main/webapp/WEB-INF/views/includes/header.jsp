@@ -15,9 +15,11 @@
     <link rel="stylesheet" href="/resources/css/listPicture.css">
     <link rel="stylesheet" href="/resources/css/read.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" type="text/css" rel="stylesheet">
-    <script src="/resources/jquery/jquery.min.js"></script>
-
-    <script src="/resources/js/singup.js"></script>
+    <script src="/resources/jquery/jquery.min.js" defer></script>
+    <script src="/resources/js/singup.js" defer></script>
+    <script src="/resources/js/board.js" defer></script>
+    <script src="/resources/js/list-picture.js" defer></script>
+    
     <title>Film Reaction</title>
 </head>
 <body>
@@ -38,7 +40,7 @@
                    	<a href="/film/logout">로그아웃</a>
                     </sec:authorize>
                     <sec:authorize access="isAnonymous()">
-                    <a href="/film/login"">로그인</a>
+                    <a href="/film/login">로그인</a>
                     </sec:authorize>       
                     <a href="/film/signup"><span class="menu-item">회원가입</span></a>
                   </nav>

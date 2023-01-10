@@ -33,7 +33,10 @@
 
 .register_title{
     width: 100%;
-    height: 35px;
+    height: 55px;
+    display:flex;
+    flex-direction: column;
+    padding-bottom:15px;
 }
 .title_area {
     width: 35%;

@@ -1,136 +1,163 @@
-*{
-    box-sizing: border-box;
-    margin: 0px;
+* {
+  box-sizing: border-box;
+  margin: 0px;
 }
 
-  /* 게시판 */
-  .wrapper_board{
-      margin:0 20%;
-      padding-bottom: 200px;
-  }
-  
-  /* 게시판 목록 tit */
-  
- .board_head{
- 	justify-content: space-between;
- 	display:flex;
- 	flex-direction:row;  
-  	align-items: flex-end;
- }
-  
-  .board_head h3 {
-	margin: 50px 0px 8px 0px;
-    font-size: 2rem;
-  }
-
-  .board_line {
-      border-top: 3px solid #000000;
-  }
-  
- .board_tag {
- 	width:100px;
- 	margin: 50px 0px 8px 0px;
- }
-
- .tablinks { 
- 	cursor: pointer;
- }
-
- .tablinks:hover { 
-  background-color: #2C3639;
+/* 게시판 */
+.wrapper_board {
+  margin: 0 20%;
+  padding-bottom: 200px;
 }
 
-  
-  /* 게시판 목록 제목 */
-  .board_table{
-      width: 100%;
-      text-align: center;
-      color: #252525;
-      margin: 50px 0 20px 0; 
-      border-collapse: collapse;
-  }
-  
-  .table_title th {
-      padding: 25px 0;
-      font-weight: 800;
-      color:#DCD7C9;
-      background-color:#2C3639;
-      letter-spacing: 2px;
-      font-size: 19px;
-  }
+/* 게시판 목록 tit */
 
-  /*게시판 테이블 크기*/
-  .table_title :first-child {
-    width: 13%;
-  }
-  .table_title :nth-child(2) {
-    width:37%;
-  }
-  .table_title :nth-child(3) {
-    width: 25%;
-  }
-  .table_title :last-child {
-    width: 25%;
-  }
+.board_head {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
 
-  
-  /* 게시판 목록 내용 */
-  .tr_list td {
-      padding: 20px 0;
-      border-bottom: 1px solid #d8d8d8;
-  }
-  
-  .comment_cnt {
-      color: #f19a09;
-  }
-  
+.board_head h3 {
+  margin: 50px 0px 8px 0px;
+  font-size: 2rem;
+}
 
-  .board_bottom {
-      padding-top: 30px;
-      text-align: center;
-  }
-  
-  
-  .write_btn {
-      float : right;
-      top: 20px;
-      line-height: 40px;
-      width: 170px;
-      height: 50px;
-      background-color: #f19a09;
-      border: 0;
-      color: #fff;
-      font-size: 1rem;
-      cursor: pointer;
-  }
-  
+.board_line {
+  border-top: 3px solid #000000;
+}
+
+.board_tag {
+  width: 100px;
+  margin: 50px 0px 8px 0px;
+}
+
+.tablinks {
+  cursor: pointer;
+}
+
+.tablinks:hover {
+  background-color: #2c3639;
+}
+
+/* 게시판 목록 제목 */
+.board_table {
+  width: 100%;
+  text-align: center;
+  color: #252525;
+  margin: 50px 0 20px 0;
+  border-collapse: collapse;
+}
+
+.table_title th {
+  padding: 25px 0;
+  font-weight: 800;
+  color: #dcd7c9;
+  background-color: #2c3639;
+  letter-spacing: 2px;
+  font-size: 19px;
+}
+
+/*게시판 테이블 크기*/
+.table_title :first-child {
+  width: 13%;
+}
+.table_title :nth-child(2) {
+  width: 37%;
+}
+.table_title :nth-child(3) {
+  width: 25%;
+}
+.table_title :last-child {
+  width: 25%;
+}
+
+/* 게시판 목록 내용 */
+.tr_list td {
+  padding: 20px 0;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.tr_list td a {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.tr_list td a:hover {
+  color: lightgray;
+}
+
+.comment_cnt {
+  color: #f19a09;
+}
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style: none;
+}
+
+.pagination li {
+  height: 30px;
+  width: 50px;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.pagination li a {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+
+.active_list {
+  background-color: #e7e7e7;
+}
+
+.board_bottom {
+  padding-top: 30px;
+  text-align: center;
+}
+
+.write_btn {
+  float: right;
+  top: 20px;
+  line-height: 40px;
+  width: 170px;
+  height: 50px;
+  background-color: #f19a09;
+  border: 0;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
 .write_btn:hover {
-    background-color: #e18100;
+  background-color: #e18100;
 }
-  
-  
-  /* 검색창 */
-  .wrapper_search {
-     display:flex;
-     flex-direction: row;
-     
-  }
-  
-  
-  input.search_box {
-      width: 300px;
-      height: 38px;
-      padding: 6px 54px 6px 12px;
-      font-size: 16px;
-      line-height: 37px;
-      border: 1px solid #dfdfdf;
-  }
-  
-  .search_btn {
-      border: 0;
-      width:75px;
-  }
 
-  .search_btn:active {
-    background-color: #cfcfcf;
-  }
+/* 검색창 */
+.wrapper_search {
+  display: flex;
+  flex-direction: row;
+}
+
+input.search_box {
+  width: 300px;
+  height: 38px;
+  padding: 6px 54px 6px 12px;
+  font-size: 16px;
+  line-height: 37px;
+  border: 1px solid #dfdfdf;
+}
+
+.search_btn {
+  border: 0;
+  width: 75px;
+}
+
+.search_btn:active {
+  background-color: #cfcfcf;
+}

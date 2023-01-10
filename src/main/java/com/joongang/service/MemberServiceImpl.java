@@ -40,6 +40,7 @@ public class MemberServiceImpl implements MemberService {
 		auth.setAuth(role);
 		return auth;
 	}
+
 	
 	
 

@@ -2,6 +2,7 @@ package com.joongang.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,7 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.joongang.domain.BoardVO;
+import com.joongang.domain.Criteria;
+import com.joongang.domain.PageDTO;
 import com.joongang.service.BoardService;
+import com.joongang.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -21,6 +25,7 @@ import lombok.extern.log4j.Log4j;
 public class BoardController {
 	
 	private final BoardService boardService;
+	private final MemberService member;
 	
 	@GetMapping("/main")
 	public void main() {
@@ -45,14 +50,23 @@ public class BoardController {
 	
 
 	@GetMapping("/board")
-	public void board() {
+	public void board(Criteria criteria, Model model) {
 		log.info("board page.....");
-		boardService.getList();
+		model.addAttribute("board", boardService.getList(criteria));
+
+		PageDTO pagemake = new PageDTO(boardService.getTotalCount(criteria), criteria);
+		
+		model.addAttribute("pageMaker", pagemake);
 	}
 	
 	@GetMapping("/list-picture")
-	public void picture() {
+	public void picture(Criteria criteria, Model model) {
 		log.info("list-picutre page.....");
+		model.addAttribute("board", boardService.getList(criteria));
+
+		PageDTO pagemake = new PageDTO(boardService.getTotalCount(criteria), criteria);
+		
+		model.addAttribute("pageMaker", pagemake);
 	}
 	
 	@GetMapping("/board/{bno}")

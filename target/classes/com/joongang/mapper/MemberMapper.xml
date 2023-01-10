@@ -37,4 +37,6 @@
 		values(#{userId}, #{auth})
 	</insert>
 	
+	
+	
 </mapper>

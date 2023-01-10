@@ -10,4 +10,5 @@ public interface MemberMapper {
 	public int signup(MemberVO membervo);
 	
 	public int insertAuth(AuthVO auth);
+
 }

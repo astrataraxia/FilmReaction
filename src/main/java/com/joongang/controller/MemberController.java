@@ -37,8 +37,7 @@ public class MemberController {
 
 	@GetMapping("/login")
 	public void login(String error, String logout, Model model) {
-		log.info("login page");
-		
+		log.info("login page");	
 		log.info("error: " +error);
 		log.info("logout: "+logout);
 		if(error != null) {
