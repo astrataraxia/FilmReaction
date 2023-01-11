@@ -1,23 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core"
-prefix="c"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@include file="../includes/header.jsp"%>
 
 <div class="wrapper_main">
     <div class="itemWrap">
-    
-        <div class="item">
-            <div class="imgBox">
-                <img
-                    src="https://yts.mx/assets/images/movies/the_bohemian_life_1992/large-cover.jpg"
-                    alt="탁상용 조명"/>
-            </div>
-            <div class="textBox">
-                <p class="textBox__name">탁상용 조명</p>
-                <p class="textBox__rank">260,000 원</p>
-            </div>
-        </div>
-     
+    	<c:forEach items="${movies}" var="movie">
+	        <div class="item">
+	            <div class="imgBox">
+	                <img src="${movie.coverImage}" alt="movie"/>
+	            </div>
+	            <div class="textBox">
+	                <p class="textBox__name">타이틀 : ${movie.titleLong}</p>
+	                <p class="textBox__rank">평점 : ${movie.rating}</p>
+	            </div>
+	        </div>
+     	</c:forEach>
     </div>
 </div>
 

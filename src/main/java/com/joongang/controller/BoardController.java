@@ -1,5 +1,7 @@
 package com.joongang.controller;
 
+import java.util.List;
+
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,9 +13,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.joongang.domain.BoardVO;
 import com.joongang.domain.Criteria;
+import com.joongang.domain.Movie;
 import com.joongang.domain.PageDTO;
 import com.joongang.service.BoardService;
-import com.joongang.service.MemberService;
+import com.joongang.service.MovieApiService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -25,12 +28,15 @@ import lombok.extern.log4j.Log4j;
 public class BoardController {
 	
 	private final BoardService boardService;
-	private final MemberService member;
+	private final MovieApiService movie;
 	
-	@GetMapping("/main")
-	public void main() {
-		log.info("main page.....");
-	}
+    @GetMapping("/main")
+    public String main(Model model) {
+        log.info("main page.....");
+        List<Movie> movies = movie.getMovies();
+        model.addAttribute("movies", movies);
+        return "film/main";
+    }
 
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/register")
