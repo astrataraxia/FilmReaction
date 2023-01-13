@@ -91,4 +91,5 @@
     </div>
 </div>
 
+<script src="/resources/js/list-picture.js" defer></script>
 <%@include file="../includes/footer.jsp" %>

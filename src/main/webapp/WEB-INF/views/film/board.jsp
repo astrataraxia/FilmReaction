@@ -35,29 +35,29 @@ pageEncoding="UTF-8"%>
                 </tr>
             </thead>
             <tbody class="board_content">
-                <c:forEach items="${board}" var="film">
+                <c:forEach items="${board}" var="board">
                     <tr class="tr_list">
                         <!--글 번호-->
-                        <td><c:out value="${film.bno}"/></td>
+                        <td><c:out value="${board.bno}"/></td>
                         <!-- 글 제목 -->
                         <td>
-                            <a class="move" href='/film/board/<c:out value="${film.bno}"/>'>
-                                <c:out value="${film.title}"/>
-                                <b>[<c:out value="${film.replyCnt}"/>]</b>
+                            <a class="move" href='<c:out value="${board.bno}"/>'>
+                                <c:out value="${board.title}"/>
+                                <b>[<c:out value="${board.replyCnt}"/>]</b>
                             </a>
                         </td>
                         <!-- 작성자-->
                         <td>
-                            <c:out value="${film.writer}"/>
+                            <c:out value="${board.writer}"/>
                         </td>
                         <!-- 글 작성 시간 -->
                         <td>
                             <c:choose>
-                                <c:when test="${film.regdate } == ${film.updateDate }">
-                                    <fmt:formatDate pattern="YY-MM-dd hh:mm" value="${film.regdate}"/>
+                                <c:when test="${board.regdate } == ${board.updateDate }">
+                                    <fmt:formatDate pattern="YY-MM-dd hh:mm" value="${board.regdate}"/>
                                 </c:when>
                                 <c:otherwise>
-                                    <fmt:formatDate pattern="YY-MM-dd hh:mm" value="${film.updateDate}"/>
+                                    <fmt:formatDate pattern="YY-MM-dd hh:mm" value="${board.updateDate}"/>
                                 </c:otherwise>
                             </c:choose>
                         </td>
@@ -71,7 +71,7 @@ pageEncoding="UTF-8"%>
             <ul class="pagination">
                 <c:if test="${pageMaker.prev}">
                     <li class="paginate_button previous">
-                        <a href="${pageMaker.startPage-1 }">Previous</a>
+                        <a href="${pageMaker.startPage-1 }">Prev</a>
                     </li>
                 </c:if>
                 <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
@@ -95,14 +95,16 @@ pageEncoding="UTF-8"%>
         </div>
 
         <!-- 검색 박스 -->
-        <form name="searchForm" method="get" action="/film/board" class="wrapper_search">
+        <form id="searchForm" method="get" action="/film/board" class="wrapper_search">
             <select name="type" class="search">
-                <option>제목</option>
-                <option>제목 + 본문</option>
-                <option>작성자</option>
+                <option value="T" <c:out value="${pageMaker.criteria.type eq 'T'?'selected':''}"/>>제목</option>
+                <option value="TC" <c:out value="${pageMaker.criteria.type eq 'TC'?'selected':''}"/>>제목 + 본문</option>
+                <option value="W" <c:out value="${pageMaker.criteria.type eq 'W'?'selected':''}"/>>작성자</option>
             </select>
-            <input type="text" name="search_box" class="search_box"/>
-            <button type="submit" class="search_btn">검색</button>
+            <input type="text" name="keyword" class="search_box" value='<c:out value="${pageMaker.criteria.keyword}"/>'/>
+            <input type="hidden" name="pageNum" value='<c:out value="${pageMaker.criteria.pageNum}"/>'>
+			<input type="hidden" name="amount" value='<c:out value="${pageMaker.criteria.amount}"/>'>
+            <button class="search_btn">검색</button>
         </form>
     </div>
 
@@ -114,4 +116,5 @@ pageEncoding="UTF-8"%>
     </form>
 </div>
 
+<script src="/resources/js/board.js" defer></script>
 <%@include file="../includes/footer.jsp" %>

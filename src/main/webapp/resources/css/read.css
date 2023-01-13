@@ -89,6 +89,10 @@
 }
 
 
+.reply_list {
+	margin-bottom: 100px;
+}
+
 .reply_list>ul {
     list-style: none;
 
@@ -109,3 +113,12 @@
     font-size: 22px;
     margin-bottom: 5px;
 }
+
+.reply_form {
+	display:none;
+}
+
+.panel-footer {
+	margin-top: 10px;
+}
+

@@ -86,4 +86,5 @@ prefix="c"%>
     </div>
 </div>
 
+<script src="/resources/js/singup.js" defer></script>
 <%@include file="../includes/footer.jsp" %>

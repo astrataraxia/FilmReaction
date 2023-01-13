@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -15,11 +16,8 @@
     <link rel="stylesheet" href="/resources/css/listPicture.css">
     <link rel="stylesheet" href="/resources/css/read.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" type="text/css" rel="stylesheet">
-    <script src="/resources/jquery/jquery.min.js" defer></script>
-    <script src="/resources/js/singup.js" defer></script>
-    <script src="/resources/js/board.js" defer></script>
-    <script src="/resources/js/list-picture.js" defer></script>
-    
+    <script src="/resources/jquery/jquery.min.js"></script>
+        
     <title>Film Reaction</title>
 </head>
 <body>

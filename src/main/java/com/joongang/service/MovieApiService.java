@@ -22,7 +22,7 @@ public class MovieApiService {
 
 	 private final Gson gson = new Gson();
 	 private final String API_URL = "https://yts.mx/api/v2/list_movies.json";
-	 
+	
 	 public List<Movie> getMovies() {
 		 	try {
 		        JsonArray moviesJson = gson.fromJson(

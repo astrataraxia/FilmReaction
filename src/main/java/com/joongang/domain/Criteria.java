@@ -4,6 +4,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import lombok.Data;
 
+/**
+ * 페이징 12 - 1p
+ * 검색 type, Keyword
+ */
 @Data
 public class Criteria {
 	private int pageNum;

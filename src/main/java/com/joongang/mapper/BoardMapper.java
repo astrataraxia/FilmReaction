@@ -2,6 +2,8 @@ package com.joongang.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.joongang.domain.BoardVO;
 import com.joongang.domain.Criteria;
 
@@ -20,5 +22,8 @@ public interface BoardMapper {
 	public int update(BoardVO board);
 	
 	public int delete(Long bno);
+	
+	public void updateReplyCnt(@Param("bno") Long bno, @Param("amount") int amount);
+
 	
 }
