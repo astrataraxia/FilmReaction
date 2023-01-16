@@ -5,91 +5,91 @@ pageEncoding="UTF-8"%>
 <%@include file="../includes/header.jsp"%>
 
 <div class="wrapper_read">
-    <!-- read 헤드 -->
-    <div class="read_head">
-        <h3>Film Reaction 수정</h3>
-    </div>
-    <div class="read_line"></div>
-    <!-- read 테이블 -->
-    <form role="form" action="/film/board/modify" method="post">
-	    <table class="read_table">
-	        <thead>
-	            <tr class="read_table_title">
-	                <th>제목</th>
-	                <td>${board.title}</td>
-	            </tr>
-	            <tr class="read_table_title">
-	                <th>작성자</th>
-	                <td>${board.writer}</td>
-	            </tr>
-	            <tr class="read_table_title">
-	                <th>작성일</th>
-	                <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regdate}"/></td>
-	            </tr>
-	        </thead>
-	    </table>
-	    
-	    <!-- 내용 출력 -->
-	    <div class="read_table_content">
-	        <textarea class="read_content" name="content">${board.content}</textarea>
-	    </div>
+		<div class="read_head">
+			<h3>Film Reaction 수정</h3>
+		</div>
+		 <div class="read_line"></div>
 		
-	    <!-- modify ,list button & 댓글-->
-	    <div class="read_bottom">
-	    	<sec:authentication property="principal" var="pinfo"/>
-			<sec:authorize access="isAuthenticated()">
-				<c:if test="${pinfo.username eq board.writer}">
-			        <button type="submit" class="read_button" data-oper='Modify' >수정</button>
-			        <button type="submit" class="read_button" data-oper='remove' >삭제</button>
-			     </c:if>
-			 </sec:authorize>
-	        <button class="read_button"  type="submit" data-oper="list_m">목록</button>
-	    </div>
-	    
-  		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-		<input type="hidden" name="pageNum" value='<c:out value="${criteria.pageNum}"/>'>
-		<input type="hidden" name="amount" value='<c:out value="${criteria.amount}"/>'>
-		<input type='hidden' name='type' value='<c:out value="${criteria.type}"/>'>
-	    <input type='hidden' name='keyword' value='<c:out value="${criteria.keyword}"/>'>
-	    <input type='hidden' name="bno" id="bno" value="${board.bno}"/>
-	    <input type="hidden" name="title" id="title" value="${board.title}"/>
-	 </form>
-	 
+			<form role="form" action="/film/modify" method="post">
+			    <table class="read_table">
+				        <thead>
+					         <tr class="read_table_title">
+					         	<th>번호</th>
+					            <td><input class="form-control" name="bno" 
+					            value='<c:out value="${board.bno}"/>' readonly="readonly"></td>
+					          </tr>
+				            <tr class="read_table_title">
+				                <th>제목</th>
+				                <td> <input class="form-control" name="title" 
+								value='<c:out value="${board.title}"/>'></td>
+				            </tr>
+				            <tr class="read_table_title">
+				                <th>작성자</th>
+				                <td><input class="form-control" name="writer"
+								value='<c:out value="${board.writer}"/>' readonly="readonly"></td>
+				            </tr>
+				            <tr class="read_table_title">
+				                <th>작성일</th>
+				                <td><input class="form-control" name="regDate"
+								value='<fmt:formatDate pattern="yyyy-MM-dd" value="${board.regdate}"/>' readonly="readonly"></td>
+				            </tr>
+				        </thead>
+				  </table>
+			    
+			    <!-- 내용 출력 -->
+			    <div class="read_table_content">
+			        <textarea class="read_content" name="content"><c:out value="${board.content}"/></textarea>
+			    </div>
+					
+					<sec:authentication property="principal" var="pinfo"/>
+					<sec:authorize access="isAuthenticated()">
+						<c:if test="${pinfo.username eq board.writer}">
+							<button type="submit" data-oper='Modify' class="read_button" >수정</button>
+							<button type="submit" data-oper='remove' class="read_button" >삭제</button>
+						</c:if>
+					</sec:authorize>
+					
+					<button type="submit" data-oper="list" class="read_button">List</button>
+					
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+					<input type="hidden" name="pageNum" value='<c:out value="${criteria.pageNum}"/>'>
+					<input type="hidden" name="amount" value='<c:out value="${criteria.amount}"/>'>
+					<input type='hidden' name='type' value='<c:out value="${criteria.type}"/>'>
+				    <input type='hidden' name='keyword' value='<c:out value="${criteria.keyword}"/>'>
+					
+				</form>
+				
+</div> <!-- /.row -->
 
-</div>
-
-
-
-<script>
-$(document).ready(function() {
-	var formObj = $("form");
-	$('button').on("click", function(e) {
-		e.preventDefault();
-		var bno = $("#bno").val();
-		var title = $("#title").val();
-		console.log(bno);
-		var operation = $(this).data("oper");
-		
-		if(operation === 'remove') {
-			formObj.attr("action", "/film/remove");
-			formObj.append(bno);
-		} else if(operation ==='list_m') {
-			//move to list
-			formObj.attr("action", "/film/board").attr("method", "get");
-			var pageNumTag = $("input[name='pageNum']").clone();
-			var amountTag = $("input[name='amount']").clone();
-			var typeTag = $("input[name='type']").clone();
-			var keywordTag =$("input[name='keyword']").clone();
-			formObj.empty();
-			formObj.append(pageNumTag);
-			formObj.append(amountTag);
-			formObj.append(typeTag);
-			formObj.append(keywordTag);				
-		}
-		formObj.append(title)
-		formObj.submit();
+<script type="text/javascript">
+	$(document).ready(function() {
+		var formObj = $("form");
+		$('button').on("click", function(e) {
+			e.preventDefault();
+			var operation = $(this).data("oper");
+			console.log(operation);
+			
+			if(operation === 'remove') {
+				formObj.attr("action", "/film/remove");
+			} else if(operation ==='list') {
+				//move to list
+				formObj.attr("action", "/film/board").attr("method", "get");
+				var pageNumTag = $("input[name='pageNum']").clone();
+				var amountTag = $("input[name='amount']").clone();
+				var typeTag = $("input[name='type']").clone();
+				var keywordTag =$("input[name='keyword']").clone();
+				formObj.empty();
+				formObj.append(pageNumTag);
+				formObj.append(amountTag);
+				formObj.append(typeTag);
+				formObj.append(keywordTag);				
+			}
+			formObj.submit();
+		});
 	});
-});
+
 </script>
+
+
 
 <%@include file="../includes/footer.jsp" %>

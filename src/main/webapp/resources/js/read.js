@@ -117,7 +117,7 @@ $(document).ready(function() {
 
 	$("button[data-oper='modify']").on("click",
 		function(e) {
-				operForm.attr("action","/film/board/modify").submit();
+				operForm.attr("action","/film/modify").submit();
 	});
 	$("button[data-oper='list']").on("click",
 			function(e){

@@ -18,7 +18,7 @@ $(".paginate_button a").on("click",
 				actionForm.find("input[name='bno']").remove();
 			}
 			actionForm.append("<input type='hidden' name='bno' value='"+ $(this).attr("href")+ "'>");
-			actionForm.attr("action", "board/read");
+			actionForm.attr("action", "/film/read");
 			actionForm.submit();
 	});
 	

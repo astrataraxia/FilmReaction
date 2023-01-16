@@ -77,24 +77,15 @@ public class BoardController {
 		model.addAttribute("pageMaker", pagemake);
 	}
 	
-	@GetMapping("/board/read")
-	public String read(@RequestParam Long bno, 
+	@GetMapping({"/read", "/modify"})
+	public void read(@RequestParam Long bno, 
 			@ModelAttribute Criteria criteria, Model model) {
 		log.info("read page......");
 		model.addAttribute("board",boardService.get(bno));
-		return "film/read";
-	}
-	
-	@GetMapping("/board/modify")
-	public String modify(@RequestParam Long bno, 
-			@ModelAttribute Criteria criteria, Model model) {
-		log.info("modify page......");
-		model.addAttribute("board",boardService.get(bno));
-		return "film/modify";
 	}
 	
 	@PreAuthorize("principal.username == #board.writer")
-	@PostMapping("/board/modify")
+	@PostMapping("/modify")
 	public String modify(BoardVO board, Criteria criteria ,RedirectAttributes rttr) {
 		log.info("modify......."+board);
 		
@@ -106,7 +97,8 @@ public class BoardController {
 	
 	@PreAuthorize("principal.username == #writer")
 	@PostMapping("/remove")
-	public String remove(@RequestParam("bno") Long bno, Criteria criteria, RedirectAttributes rttr) {
+	public String remove(@RequestParam("bno") Long bno, Criteria criteria, RedirectAttributes rttr,
+			@RequestParam("writer") String writer) {
 		log.info("remove" + bno);
 		
 		if(boardService.delete(bno)) {

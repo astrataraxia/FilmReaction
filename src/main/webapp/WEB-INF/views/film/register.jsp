@@ -14,8 +14,7 @@ prefix="c"%>
     <div class="register_line"></div>
 
     <div class="register_body">
-        <form
-            class="register_form" method="post" action="/film/register">
+        <form class="register_form" method="post" action="/film/register">
             <!-- 보안토큰  -->
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
