@@ -1,6 +1,6 @@
 # FilmReaction
 > 영화 리뷰 게시판 사이트</br></br>
-개발 기간: 2023.01.04 - 2023.01.16
+개발 기간: 2023.01.03 - 2023.01.16
 <br/><br/>
 
 
@@ -35,3 +35,21 @@
 
 ### 4.ERD
 ![poster](./erd.jpg)<br/>
+
+<br/><br/>
+
+### 5.화면 소개
+
+<br/><br/>
+
+### 6.API 명세서
+
+* Reply-Controller
+
+| HTTP Method | HOST | The Role |
+|--- |--- |--- |
+| GET | /replies/pages/{bno}/{page} | get Reply List |
+| POST | /replies/new | Create Reply |
+| DELETE | /replies/{rno} | Delete Reply |
+| PUT,PATH | /replies/{rno} | Update Reply |
+
